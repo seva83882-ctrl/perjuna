@@ -1,11 +1,9 @@
 /* =============================================================
-   МАМИНЫ СЕКРЕТЫ — Каталог товаров
-   Собрано строго по голосовым и пожеланиям мастера Пержаны.
+   МАМИНЫ СЕКРЕТЫ — Каталог товаров (js/data.js)
+   Цены и фасовки строго по голосовым мастера Пержаны.
    ============================================================= */
 
-'use strict';
-
-const PRODUCTS_DATA = {
+var PRODUCTS_DATA = {
 
   /* ═══════════════════════════════════════════════════════════
      ВСЕГДА В НАЛИЧИИ (Пасека и сборы)
@@ -13,83 +11,26 @@ const PRODUCTS_DATA = {
   'in-stock': [
 
     {
-      id: 'honey-mountain',
+      id: 'honey-glass',
       category: 'in-stock',
-      name: 'Мёд горный натуральный',
-      subtitle: 'Прозрачный янтарный мёд, ведёрко 1 л (~1.5 кг)',
+      name: 'Мёд пасечный натуральный',
+      subtitle: 'Ведёрко 1 л (~1.5 кг) прямо с пасеки',
       description:
-        'Собственная пасека. Натуральный горный мёд без добавок, сахара и термической обработки. Чистый прозрачный цвет и насыщенный аромат горных цветов.',
+        'Собственная семейная пасека. Чистый натуральный мед без добавок, сахара и термической обработки. Фасуется в ведёрки объёмом 1 литр (около 1.5 кг чистого веса).',
       images: [
         'assets/catalog/in-stock/honey-glass-1.jpg',
-        'assets/catalog/in-stock/honey-glass-2.jpg',
+        'assets/catalog/in-stock/honey-glass-2.jpg'
       ],
       weights: [
-        { label: 'Ведёрко 1 л (~1.5 кг)', value: 1500, price: 1800 },
-      ],
-      fillings: null,
-      basePrice: 1800,
-      unit: 'ведёрко',
-      popular: true,
-    },
-
-    {
-      id: 'honey-dyagil',
-      category: 'in-stock',
-      name: 'Мёд дягилевый',
-      subtitle: 'Редкий элитный сорт, ведёрко 1 л (~1.5 кг)',
-      description:
-        'Натуральный дягилевый мёд с ярким карамельно-пряным ароматом и лёгкой горчинкой. Богат микроэлементами и высоко ценится за целебные свойства.',
-      images: [
-        'assets/catalog/in-stock/honey-glass-1.jpg',
-        'assets/catalog/in-stock/honey-glass-2.jpg',
-      ],
-      weights: [
-        { label: 'Ведёрко 1 л (~1.5 кг)', value: 1500, price: 1800 },
-      ],
-      fillings: null,
-      basePrice: 1800,
-      unit: 'ведёрко',
-      popular: false,
-    },
-
-    {
-      id: 'honey-meadow',
-      category: 'in-stock',
-      name: 'Мёд луговое разнотравье',
-      subtitle: 'Ароматный цветочный мёд, ведёрко 1 л (~1.5 кг)',
-      description:
-        'Собран пчёлами с разнотравья горных лугов. Мягкий нежный вкус и богатый букет ароматов. Фасуется в ведёрко 1 литр (около 1.5 кг).',
-      images: [
-        'assets/catalog/in-stock/honey-glass-2.jpg',
-        'assets/catalog/in-stock/honey-glass-1.jpg',
-      ],
-      weights: [
-        { label: 'Ведёрко 1 л (~1.5 кг)', value: 1500, price: 1100 },
+        { label: 'Горный (1 л / ~1.5 кг) — 1 800 ₽', value: 1500, price: 1800 },
+        { label: 'Дягилевый (1 л / ~1.5 кг) — 1 800 ₽', value: 1500, price: 1800 },
+        { label: 'Гречишный (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 },
+        { label: 'Разнотравье (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 }
       ],
       fillings: null,
       basePrice: 1100,
       unit: 'ведёрко',
-      popular: true,
-    },
-
-    {
-      id: 'honey-buckwheat',
-      category: 'in-stock',
-      name: 'Мёд гречишный',
-      subtitle: 'Терпкий и насыщенный, ведёрко 1 л (~1.5 кг)',
-      description:
-        'Густой темный мёд с характерным глубоким вкусом и высоким содержанием железа. Отлично подходит для поддержания сил и иммунитета.',
-      images: [
-        'assets/catalog/in-stock/honey-glass-2.jpg',
-        'assets/catalog/in-stock/honey-glass-1.jpg',
-      ],
-      weights: [
-        { label: 'Ведёрко 1 л (~1.5 кг)', value: 1500, price: 1100 },
-      ],
-      fillings: null,
-      basePrice: 1100,
-      unit: 'ведёрко',
-      popular: false,
+      popular: true
     },
 
     {
@@ -98,17 +39,17 @@ const PRODUCTS_DATA = {
       name: 'Мёд в сотах (цельная рамка)',
       subtitle: 'Цельная рамка прямо из улья (~1.5 кг)',
       description:
-        'Свежий зрелый мёд в натуральных восковых сотах. Продаётся только цельной рамкой прямо с пасеки, без нарезки. Вес рамки около 1.5 кг.',
+        'Свежий зрелый мед в натуральных восковых сотах. Продаётся только цельной рамкой прямо с пасеки, без нарезки. Вес рамки около 1.5 кг.',
       images: [
-        'assets/catalog/in-stock/honeycomb.jpg',
+        'assets/catalog/in-stock/honeycomb.jpg'
       ],
       weights: [
-        { label: 'Цельная рамка (~1.5 кг)', value: 1500, price: 2500 },
+        { label: 'Цельная рамка (~1.5 кг)', value: 1500, price: 2500 }
       ],
       fillings: null,
       basePrice: 2500,
       unit: 'рамка',
-      popular: true,
+      popular: false
     },
 
     {
@@ -120,16 +61,16 @@ const PRODUCTS_DATA = {
         'Натуральное сливочное масло, перетопленное вручную на медленном огне. Чистый янтарный цвет, нежный сливочный аромат, без молочного белка и лишней влаги.',
       images: [
         'assets/catalog/in-stock/ghee-1.jpg',
-        'assets/catalog/in-stock/ghee-2.jpg',
+        'assets/catalog/in-stock/ghee-2.jpg'
       ],
       weights: [
         { label: 'Банка 500 г', value: 500, price: 750 },
-        { label: 'Банка 1 кг', value: 1000, price: 1400 },
+        { label: 'Банка 1 кг', value: 1000, price: 1400 }
       ],
       fillings: null,
       basePrice: 750,
       unit: 'г',
-      popular: false,
+      popular: false
     },
 
     {
@@ -143,15 +84,15 @@ const PRODUCTS_DATA = {
         'assets/catalog/in-stock/herbs-1.jpg',
         'assets/catalog/in-stock/herbs-2.jpg',
         'assets/catalog/in-stock/herbs-3.jpg',
-        'assets/catalog/in-stock/herbs-4.jpg',
+        'assets/catalog/in-stock/herbs-4.jpg'
       ],
       weights: [
-        { label: 'Крафт-пакет', value: 100, price: 500 },
+        { label: 'Крафт-пакет', value: 100, price: 500 }
       ],
       fillings: null,
       basePrice: 500,
       unit: 'пакет',
-      popular: false,
+      popular: false
     },
 
     {
@@ -162,15 +103,15 @@ const PRODUCTS_DATA = {
       description:
         'Чистая сотовая перга ручной выборки. Естественный природный источник витаминов и аминокислот для укрепления иммунитета.',
       images: [
-        'assets/catalog/in-stock/bee-perga.jpg',
+        'assets/catalog/in-stock/bee-perga.jpg'
       ],
       weights: [
-        { label: 'Пакетик 100 г', value: 100, price: 1100 },
+        { label: 'Пакетик 100 г', value: 100, price: 1100 }
       ],
       fillings: null,
       basePrice: 1100,
       unit: 'г',
-      popular: false,
+      popular: false
     },
 
     {
@@ -182,15 +123,15 @@ const PRODUCTS_DATA = {
         'Натуральная цветочная пыльца (обножка), собранная пчёлами на горных лугах. Отличная витаминная добавка к пище.',
       images: [
         'assets/catalog/in-stock/bee-pollen-1.jpg',
-        'assets/catalog/in-stock/bee-pollen-2.jpg',
+        'assets/catalog/in-stock/bee-pollen-2.jpg'
       ],
       weights: [
-        { label: 'Пакетик 100 г', value: 100, price: 800 },
+        { label: 'Пакетик 100 г', value: 100, price: 800 }
       ],
       fillings: null,
       basePrice: 800,
       unit: 'г',
-      popular: false,
+      popular: false
     },
 
     {
@@ -201,19 +142,18 @@ const PRODUCTS_DATA = {
       description:
         'Сухой пчелиный подмор от здоровых пчелиных семей с нашей пасеки. Используется для домашних целебных настоек и растирок.',
       images: [
-        'assets/catalog/in-stock/bee-podmor.jpg',
+        'assets/catalog/in-stock/bee-podmor.jpg'
       ],
       weights: [
-        { label: 'Пакетик 100 г', value: 100, price: 1100 },
+        { label: 'Пакетик 100 г', value: 100, price: 1100 }
       ],
       fillings: null,
       basePrice: 1100,
       unit: 'г',
-      popular: false,
-    },
+      popular: false
+    }
 
   ],
-
 
   /* ═══════════════════════════════════════════════════════════
      ПОД ЗАКАЗ К ДАТЕ (Выпечка и домашние торты)
@@ -221,111 +161,36 @@ const PRODUCTS_DATA = {
   'pre-order': [
 
     {
-      id: 'cake-medovik',
+      id: 'cakes-custom',
       category: 'pre-order',
-      name: 'Торт Медовик',
-      subtitle: 'Натуральный мёд с пасеки, 1 700 ₽ за кг',
+      name: 'Домашние торты на заказ',
+      subtitle: 'От 1 100 ₽ до 1 800 ₽ за 1 кг',
       description:
-        'Классический домашний медовик на тонких коржах с натуральным пасечным медом. Крем на выбор: нежный заварной или сливочный (натуральные сливки Petmol 33% и творожный сыр). Минимальный вес заказа 1.3–1.5 кг.',
+        'Пеку вручную к вашей дате. Использую только натуральные сливки Petmol 33%, сливочное масло, творожный сыр и бельгийский шоколад. Без растительных жиров и маргарина. Минимальный вес торта 1.3–1.5 кг.',
       images: [
         'assets/catalog/pre-order/cake-01.jpg',
         'assets/catalog/pre-order/cake-02.jpg',
+        'assets/catalog/pre-order/cake-03.jpg',
+        'assets/catalog/pre-order/cake-04.jpg',
+        'assets/catalog/pre-order/cake-05.jpg',
+        'assets/catalog/pre-order/cake-06.jpg',
+        'assets/catalog/pre-order/cake-07.jpg'
       ],
       weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 2380 },
+        { label: '1.3 - 1.5 кг', value: 1400, price: 2380 },
         { label: '2 кг', value: 2000, price: 3400 },
-        { label: '2.5 кг', value: 2500, price: 4250 },
+        { label: '2.5 - 3 кг', value: 2700, price: 4600 }
       ],
       fillings: [
-        { id: 'zavar', label: 'Заварной крем' },
-        { id: 'petmol-cheese', label: 'Сливочный крем (сливки Petmol + сыр)' },
+        { id: 'spartak', label: 'Спартак (шоколадный медовик) — 1 100 ₽/кг' },
+        { id: 'medovik', label: 'Медовик (заварной / Petmol+сыр) — 1 700 ₽/кг' },
+        { id: 'napoleon', label: 'Наполеон (нежный заварной) — 1 800 ₽/кг' },
+        { id: 'snickers', label: 'Сникерс (арахис, карамель) — 1 800 ₽/кг' },
+        { id: 'red-velvet', label: 'Красный бархат — 1 800 ₽/кг' }
       ],
       basePrice: 2380,
       unit: 'шт.',
-      popular: true,
-    },
-
-    {
-      id: 'cake-napoleon',
-      category: 'pre-order',
-      name: 'Торт Наполеон',
-      subtitle: 'Хрустящие слои и заварной крем, 1 800 ₽ за кг',
-      description:
-        'Домашний наполеон из тончайших слоеных коржей на сливочном масле с нежным классическим заварным кремом. Минимальный вес заказа 1.3–1.5 кг.',
-      images: [
-        'assets/catalog/pre-order/cake-03.jpg',
-      ],
-      weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 2520 },
-        { label: '2 кг', value: 2000, price: 3600 },
-        { label: '2.5 кг', value: 2500, price: 4500 },
-      ],
-      fillings: null,
-      basePrice: 2520,
-      unit: 'шт.',
-      popular: true,
-    },
-
-    {
-      id: 'cake-spartak',
-      category: 'pre-order',
-      name: 'Торт Спартак',
-      subtitle: 'Шоколадный медовик с заварным кремом, 1 100 ₽ за кг',
-      description:
-        'Шоколадно-медовые коржи с натуральным медом и какао, пропитанные нежным заварным кремом. Очень мягкий и тающий вкус.',
-      images: [
-        'assets/catalog/pre-order/cake-05.jpg',
-      ],
-      weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 1540 },
-        { label: '2 кг', value: 2000, price: 2200 },
-        { label: '2.5 кг', value: 2500, price: 2750 },
-      ],
-      fillings: null,
-      basePrice: 1540,
-      unit: 'шт.',
-      popular: true,
-    },
-
-    {
-      id: 'cake-snickers',
-      category: 'pre-order',
-      name: 'Торт Сникерс',
-      subtitle: 'Арахис, карамель и шоколад, 1 800 ₽ за кг',
-      description:
-        'Насыщенный шоколадный бисквит, домашняя сливочная карамель, обжаренный арахис и крем на натуральных сливках Petmol. Сверху покрыт слоем шоколада.',
-      images: [
-        'assets/catalog/pre-order/cake-06.jpg',
-      ],
-      weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 2520 },
-        { label: '2 кг', value: 2000, price: 3600 },
-        { label: '2.5 кг', value: 2500, price: 4500 },
-      ],
-      fillings: null,
-      basePrice: 2520,
-      unit: 'шт.',
-      popular: false,
-    },
-
-    {
-      id: 'cake-red-velvet',
-      category: 'pre-order',
-      name: 'Торт Красный бархат',
-      subtitle: 'Нежный бисквит и крем-чиз, 1 800 ₽ за кг',
-      description:
-        'Бархатный бисквит с легкой шоколадной ноткой и воздушным кремом из творожного сыра и натуральных сливок Petmol 33%.',
-      images: [
-        'assets/catalog/pre-order/cake-07.jpg',
-      ],
-      weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 2520 },
-        { label: '2 кг', value: 2000, price: 3600 },
-      ],
-      fillings: null,
-      basePrice: 2520,
-      unit: 'шт.',
-      popular: false,
+      popular: true
     },
 
     {
@@ -334,19 +199,19 @@ const PRODUCTS_DATA = {
       name: 'Чизкейк Сан-Себастьян',
       subtitle: 'Баскский сливочный чизкейк, 1 800 ₽ за кг',
       description:
-        'Нежнейший чизкейк с карамельной обожженной корочкой и сливочной серединой на натуральных сливках Petmol 33% и творожном сыре, без муки.',
+        'Нежнейший чизкейк с обожженной карамельной корочкой и кремовой серединкой. Приготовлен на натуральных сливках Petmol 33% и творожном сыре, без муки.',
       images: [
         'assets/catalog/pre-order/san-sebastian-1.jpg',
-        'assets/catalog/pre-order/san-sebastian-2.jpg',
+        'assets/catalog/pre-order/san-sebastian-2.jpg'
       ],
       weights: [
         { label: '1 кг (целый чизкейк)', value: 1000, price: 1800 },
-        { label: '1.5 кг', value: 1500, price: 2700 },
+        { label: '1.5 кг', value: 1500, price: 2700 }
       ],
       fillings: null,
       basePrice: 1800,
       unit: 'кг',
-      popular: true,
+      popular: true
     },
 
     {
@@ -355,19 +220,19 @@ const PRODUCTS_DATA = {
       name: 'Заварные эклеры',
       subtitle: 'Заварной крем и бельгийский шоколад, 200 ₽ за шт.',
       description:
-        'Тонкое домашнее заварное тесто на сливочном масле, нежный заварной крем и настоящий кондитерский бельгийский шоколад.',
+        'Тонкое домашнее заварное тесто на сливочном масле, наполненное нежным заварным кремом и политое настоящим бельгийским шоколадом.',
       images: [
-        'assets/catalog/pre-order/eclairs.jpg',
+        'assets/catalog/pre-order/eclairs.jpg'
       ],
       weights: [
-        { label: 'Набор 4 шт.', value: 4, price: 800 },
-        { label: 'Набор 6 шт.', value: 6, price: 1200 },
-        { label: 'Набор 10 шт.', value: 10, price: 2000 },
+        { label: '4 шт. (800 ₽)', value: 4, price: 800 },
+        { label: '6 шт. (1 200 ₽)', value: 6, price: 1200 },
+        { label: '10 шт. (2 000 ₽)', value: 10, price: 2000 }
       ],
       fillings: null,
       basePrice: 800,
       unit: 'набор',
-      popular: false,
+      popular: false
     },
 
     {
@@ -376,42 +241,42 @@ const PRODUCTS_DATA = {
       name: 'Трайфлы в стаканчиках',
       subtitle: 'Шоколадный бисквит, крем Petmol, ягоды',
       description:
-        'Порционные десерты в стаканчиках: шоколадный бисквит, клубника или банан, нежный крем из сливок Petmol и бельгийский шоколад.',
+        'Порционные десерты в стаканчиках: шоколадный бисквит, бананы или клубника, воздушный крем из сливок Petmol и бельгийский шоколад.',
       images: [
         'assets/catalog/pre-order/trifles-1.jpg',
-        'assets/catalog/pre-order/trifles-2.jpg',
+        'assets/catalog/pre-order/trifles-2.jpg'
       ],
       weights: [
         { label: 'Набор 4 шт.', value: 4, price: 1200 },
-        { label: 'Набор 6 шт.', value: 6, price: 1800 },
+        { label: 'Набор 6 шт.', value: 6, price: 1800 }
       ],
       fillings: [
         { id: 'strawberry', label: 'С клубникой' },
-        { id: 'banana', label: 'С бананом' },
+        { id: 'banana', label: 'С бананом' }
       ],
       basePrice: 1200,
       unit: 'набор',
-      popular: false,
+      popular: false
     },
 
     {
       id: 'pakhlava',
       category: 'pre-order',
       name: 'Пахлава медовая',
-      subtitle: 'Много орехов и горный мёд, 1 800 ₽ за кг',
+      subtitle: 'Много орехов и горный мед, 1 800 ₽ за кг',
       description:
-        'Традиционная домашняя пахлава: тончайшие слои теста, много грецкого ореха и пропитка натуральным медом с пасеки.',
+        'Традиционная домашняя пахлава: тончайшие слои теста, щедрая начинка из грецкого ореха и пропитка натуральным медом с пасеки.',
       images: [
-        'assets/catalog/pre-order/pakhlava.jpg',
+        'assets/catalog/pre-order/pakhlava.jpg'
       ],
       weights: [
         { label: '500 г (коробка)', value: 500, price: 900 },
-        { label: '1 кг (коробка)', value: 1000, price: 1800 },
+        { label: '1 кг (коробка)', value: 1000, price: 1800 }
       ],
       fillings: null,
       basePrice: 900,
       unit: 'г',
-      popular: false,
+      popular: false
     },
 
     {
@@ -422,16 +287,16 @@ const PRODUCTS_DATA = {
       description:
         'Многослойный домашний хлеб ручной раскатки на сливочном масле с добавлением традиционной пряной ореховой травы.',
       images: [
-        'assets/catalog/pre-order/bread.jpg',
+        'assets/catalog/pre-order/bread.jpg'
       ],
       weights: [
         { label: '1 шт. (~400 г)', value: 400, price: 400 },
-        { label: '3 шт.', value: 1200, price: 1100 },
+        { label: '3 шт.', value: 1200, price: 1100 }
       ],
       fillings: null,
       basePrice: 400,
       unit: 'шт.',
-      popular: false,
+      popular: false
     },
 
     {
@@ -440,40 +305,47 @@ const PRODUCTS_DATA = {
       name: 'Чуду с курицей и картошкой',
       subtitle: 'Лезгинский сытный пирог, вес ~1.3 кг',
       description:
-        'Традиционный пирог чуду: куриное филе, картошка, лук и топленое сливочное масло. Выпекается строго ко времени самовывоза.',
+        'Традиционный пирог чуду с куриным филе, картошкой, луком и топленым сливочным маслом. Выпекается строго ко времени самовывоза.',
       images: [
-        'assets/catalog/pre-order/chudu.jpg',
+        'assets/catalog/pre-order/chudu.jpg'
       ],
       weights: [
-        { label: '1 пирог (~1.3 кг)', value: 1300, price: 1100 },
+        { label: '1 пирог (~1.3 кг)', value: 1300, price: 1100 }
       ],
       fillings: null,
       basePrice: 1100,
       unit: 'шт.',
-      popular: false,
-    },
+      popular: false
+    }
 
-  ],
+  ]
 
 };
 
-/* ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ────────────────────────────── */
+/* ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (ГЛОБАЛЬНЫЙ ЭКСПОРТ В WINDOW) ─ */
 
-function getProductById(id) {
-  return [
-    ...PRODUCTS_DATA['in-stock'],
-    ...PRODUCTS_DATA['pre-order'],
-  ].find(p => p.id === id);
-}
+window.PRODUCTS_DATA = PRODUCTS_DATA;
 
-function getProductsByCategory(category) {
-  return PRODUCTS_DATA[category] ?? [];
-}
+window.getProductById = function(id) {
+  var inStock = PRODUCTS_DATA['in-stock'] || [];
+  var preOrder = PRODUCTS_DATA['pre-order'] || [];
+  var all = inStock.concat(preOrder);
+  for (var i = 0; i < all.length; i++) {
+    if (all[i].id === id) {
+      return all[i];
+    }
+  }
+  return null;
+};
 
-function formatPrice(price) {
-  return price.toLocaleString('ru-RU') + '\u00a0₽';
-}
+window.getProductsByCategory = function(category) {
+  return PRODUCTS_DATA[category] ? PRODUCTS_DATA[category] : [];
+};
 
-function getProductThumbnail(product) {
-  return product.images[0] ?? '';
-}
+window.formatPrice = function(price) {
+  return price.toLocaleString('ru-RU') + ' \u20BD';
+};
+
+window.getProductThumbnail = function(product) {
+  return (product && product.images && product.images.length > 0) ? product.images[0] : '';
+};
