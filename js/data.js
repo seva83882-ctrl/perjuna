@@ -174,10 +174,10 @@ var PRODUCTS_DATA = {
         'assets/catalog/pre-order/cake-04.jpg',
         'assets/catalog/pre-order/cake-05.jpg',
         'assets/catalog/pre-order/cake-06.jpg',
-        'assets/catalog/pre-order/cake-07.jpg'
-        'assets/catalog/pre-order/cake-08.jpg'
-        'assets/catalog/pre-order/cake-09.jpg'
-        'assets/catalog/pre-order/cake-10.jpg'
+        'assets/catalog/pre-order/cake-07.jpg',
+        'assets/catalog/pre-order/cake-08.jpg',
+        'assets/catalog/pre-order/cake-09.jpg',
+        'assets/catalog/pre-order/cake-10.jpg',
       ],
       weights: [
         { label: '1.3 - 1.5 кг (~1.4 кг)', mult: 1.4 },
