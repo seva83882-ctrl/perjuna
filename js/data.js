@@ -160,11 +160,11 @@ var PRODUCTS_DATA = {
      ═══════════════════════════════════════════════════════════ */
   'pre-order': [
 
-    {
+   {
       id: 'cakes-custom',
       category: 'pre-order',
       name: 'Домашние торты на заказ',
-      subtitle: 'От 1 100 ₽ до 1 800 ₽ за 1 кг',
+      subtitle: 'Цена от 1 100 ₽ до 1 800 ₽ за 1 кг',
       description:
         'Пеку вручную к вашей дате. Использую только натуральные сливки Petmol 33%, сливочное масло, творожный сыр и бельгийский шоколад. Без растительных жиров и маргарина. Минимальный вес торта 1.3–1.5 кг.',
       images: [
@@ -175,20 +175,23 @@ var PRODUCTS_DATA = {
         'assets/catalog/pre-order/cake-05.jpg',
         'assets/catalog/pre-order/cake-06.jpg',
         'assets/catalog/pre-order/cake-07.jpg'
+        'assets/catalog/pre-order/cake-08.jpg'
+        'assets/catalog/pre-order/cake-09.jpg'
+        'assets/catalog/pre-order/cake-10.jpg'
       ],
       weights: [
-        { label: '1.3 - 1.5 кг', value: 1400, price: 2380 },
-        { label: '2 кг', value: 2000, price: 3400 },
-        { label: '2.5 - 3 кг', value: 2700, price: 4600 }
+        { label: '1.3 - 1.5 кг (~1.4 кг)', mult: 1.4 },
+        { label: '2 кг', mult: 2.0 },
+        { label: '2.5 - 3 кг (~2.7 кг)', mult: 2.7 }
       ],
       fillings: [
-        { id: 'spartak', label: 'Спартак (шоколадный медовик) — 1 100 ₽/кг' },
-        { id: 'medovik', label: 'Медовик (заварной / Petmol+сыр) — 1 700 ₽/кг' },
-        { id: 'napoleon', label: 'Наполеон (нежный заварной) — 1 800 ₽/кг' },
-        { id: 'snickers', label: 'Сникерс (арахис, карамель) — 1 800 ₽/кг' },
-        { id: 'red-velvet', label: 'Красный бархат — 1 800 ₽/кг' }
+        { id: 'spartak', label: 'Спартак (шоколадный медовик)', pricePerKg: 1100 },
+        { id: 'medovik', label: 'Медовик (заварной или со сливками Petmol)', pricePerKg: 1700 },
+        { id: 'napoleon', label: 'Наполеон (нежный заварной крем)', pricePerKg: 1800 },
+        { id: 'snickers', label: 'Сникерс (сверху арахис и шоколад)', pricePerKg: 1800 },
+        { id: 'red-velvet', label: 'Красный бархат (бисквитный торт)', pricePerKg: 1800 }
       ],
-      basePrice: 2380,
+      basePrice: 1540,
       unit: 'шт.',
       popular: true
     },
