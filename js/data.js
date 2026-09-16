@@ -1,6 +1,6 @@
 /* =============================================================
    МАМИНЫ СЕКРЕТЫ — Каталог товаров (js/data.js)
-   Цены и фасовки строго по голосовым мастера Пержаны.
+   Выверенные цены и фасовки мастера Пержаны.
    ============================================================= */
 
 var PRODUCTS_DATA = {
@@ -22,10 +22,10 @@ var PRODUCTS_DATA = {
         'assets/catalog/in-stock/honey-glass-2.jpg'
       ],
       weights: [
-        { label: 'Горный (1 л / ~1.5 кг) — 1 800 ₽', value: 1500, price: 1800 },
-        { label: 'Дягилевый (1 л / ~1.5 кг) — 1 800 ₽', value: 1500, price: 1800 },
-        { label: 'Гречишный (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 },
-        { label: 'Разнотравье (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 }
+        { label: 'Горный (1 л / ~1.5 кг)', value: 1500, price: 1800 },
+        { label: 'Дягилевый (1 л / ~1.5 кг)', value: 1500, price: 1800 },
+        { label: 'Гречишный (1 л / ~1.5 кг)', value: 1500, price: 1100 },
+        { label: 'Разнотравье (1 л / ~1.5 кг)', value: 1500, price: 1100 }
       ],
       fillings: null,
       basePrice: 1100,
@@ -160,11 +160,11 @@ var PRODUCTS_DATA = {
      ═══════════════════════════════════════════════════════════ */
   'pre-order': [
 
-   {
+    {
       id: 'cakes-custom',
       category: 'pre-order',
       name: 'Домашние торты на заказ',
-      subtitle: 'Цена от 1 100 ₽ до 1 800 ₽ за 1 кг',
+      subtitle: 'От 1 100 ₽ до 1 800 ₽ за 1 кг',
       description:
         'Пеку вручную к вашей дате. Использую только натуральные сливки Petmol 33%, сливочное масло, творожный сыр и бельгийский шоколад. Без растительных жиров и маргарина. Минимальный вес торта 1.3–1.5 кг.',
       images: [
@@ -177,19 +177,19 @@ var PRODUCTS_DATA = {
         'assets/catalog/pre-order/cake-07.jpg',
         'assets/catalog/pre-order/cake-08.jpg',
         'assets/catalog/pre-order/cake-09.jpg',
-        'assets/catalog/pre-order/cake-10.jpg',
+        'assets/catalog/pre-order/cake-10.jpg'
       ],
       weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', mult: 1.4 },
-        { label: '2 кг', mult: 2.0 },
-        { label: '2.5 - 3 кг (~2.7 кг)', mult: 2.7 }
+        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 1540, mult: 1.4 },
+        { label: '2 кг', value: 2000, price: 2200, mult: 2.0 },
+        { label: '2.5 - 3 кг (~2.7 кг)', value: 2700, price: 2970, mult: 2.7 }
       ],
       fillings: [
-        { id: 'spartak', label: 'Спартак (шоколадный медовик)', pricePerKg: 1100 },
-        { id: 'medovik', label: 'Медовик (заварной или со сливками Petmol)', pricePerKg: 1700 },
-        { id: 'napoleon', label: 'Наполеон (нежный заварной крем)', pricePerKg: 1800 },
-        { id: 'snickers', label: 'Сникерс (сверху арахис и шоколад)', pricePerKg: 1800 },
-        { id: 'red-velvet', label: 'Красный бархат (бисквитный торт)', pricePerKg: 1800 }
+        { id: 'spartak', label: 'Спартак (шоколадный медовик) — 1 100 ₽/кг', pricePerKg: 1100 },
+        { id: 'medovik', label: 'Медовик (заварной / Petmol+сыр) — 1 700 ₽/кг', pricePerKg: 1700 },
+        { id: 'napoleon', label: 'Наполеон (нежный заварной) — 1 800 ₽/кг', pricePerKg: 1800 },
+        { id: 'snickers', label: 'Сникерс (арахис, карамель) — 1 800 ₽/кг', pricePerKg: 1800 },
+        { id: 'red-velvet', label: 'Красный бархат — 1 800 ₽/кг', pricePerKg: 1800 }
       ],
       basePrice: 1540,
       unit: 'шт.',
@@ -241,24 +241,23 @@ var PRODUCTS_DATA = {
     {
       id: 'trifles',
       category: 'pre-order',
-      name: 'Трайфлы в стаканчиках',
-      subtitle: 'Шоколадный бисквит, крем Petmol, ягоды',
+      name: 'Трайфлы в упаковке',
+      subtitle: 'Упаковка 850 мл — 1 000 ₽',
       description:
-        'Порционные десерты в стаканчиках: шоколадный бисквит, бананы или клубника, воздушный крем из сливок Petmol и бельгийский шоколад.',
+        'Порционный десерт в удобной упаковке 850 мл: шоколадный бисквит, ягоды или банан, воздушный крем из натуральных сливок Petmol и бельгийский шоколад.',
       images: [
         'assets/catalog/pre-order/trifles-1.jpg',
         'assets/catalog/pre-order/trifles-2.jpg'
       ],
       weights: [
-        { label: 'Набор 4 шт.', value: 4, price: 1200 },
-        { label: 'Набор 6 шт.', value: 6, price: 1800 }
+        { label: 'Упаковка 850 мл', value: 850, price: 1000 }
       ],
       fillings: [
         { id: 'strawberry', label: 'С клубникой' },
         { id: 'banana', label: 'С бананом' }
       ],
-      basePrice: 1200,
-      unit: 'набор',
+      basePrice: 1000,
+      unit: 'упаковка',
       popular: false
     },
 
@@ -325,7 +324,7 @@ var PRODUCTS_DATA = {
 
 };
 
-/* ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (ГЛОБАЛЬНЫЙ ЭКСПОРТ В WINDOW) ─ */
+/* ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (ГЛОБАЛЬНЫЙ ЭКСПОРТ) ───────── */
 
 window.PRODUCTS_DATA = PRODUCTS_DATA;
 
@@ -346,7 +345,7 @@ window.getProductsByCategory = function(category) {
 };
 
 window.formatPrice = function(price) {
-  return price.toLocaleString('ru-RU') + ' \u20BD';
+  return (typeof price === 'number' ? price : 0).toLocaleString('ru-RU') + ' \u20BD';
 };
 
 window.getProductThumbnail = function(product) {
