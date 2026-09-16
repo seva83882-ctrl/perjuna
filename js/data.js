@@ -10,23 +10,22 @@ var PRODUCTS_DATA = {
      ═══════════════════════════════════════════════════════════ */
   'in-stock': [
 
-    {
+   {
       id: 'honey-glass',
       category: 'in-stock',
       name: 'Мёд пасечный натуральный',
-      subtitle: 'Ведёрко 1 л (~1.5 кг) прямо с пасеки',
+      subtitle: 'Ведёрко 1 л (~1.5 кг) прямо с пасеки · от 1 100 ₽',
       description:
         'Собственная семейная пасека. Чистый натуральный мед без добавок, сахара и термической обработки. Фасуется в ведёрки объёмом 1 литр (около 1.5 кг чистого веса).',
       images: [
         'assets/catalog/in-stock/honey-glass-1.jpg',
-        'assets/catalog/in-stock/honey-glass-2.jpg',
-        'assets/catalog/in-stock/honey-glass-3.jpg'
+        'assets/catalog/in-stock/honey-glass-2.jpg'
       ],
       weights: [
-        { label: 'Горный (1 л / ~1.5 кг)', value: 1500, price: 1800 },
-        { label: 'Дягилевый (1 л / ~1.5 кг)', value: 1500, price: 1800 },
-        { label: 'Гречишный (1 л / ~1.5 кг)', value: 1500, price: 1100 },
-        { label: 'Разнотравье (1 л / ~1.5 кг)', value: 1500, price: 1100 }
+        { label: 'Разнотравье (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 },
+        { label: 'Гречишный (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 },
+        { label: 'Горный (1 л / ~1.5 кг) — 1 800 ₽', value: 1500, price: 1800 },
+        { label: 'Дягилевый (1 л / ~1.5 кг) — 1 800 ₽', value: 1500, price: 1800 }
       ],
       fillings: null,
       basePrice: 1100,
