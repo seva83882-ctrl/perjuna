@@ -19,7 +19,8 @@ var PRODUCTS_DATA = {
         'Собственная семейная пасека. Чистый натуральный мед без добавок, сахара и термической обработки. Фасуется в ведёрки объёмом 1 литр (около 1.5 кг чистого веса).',
       images: [
         'assets/catalog/in-stock/honey-glass-1.jpg',
-        'assets/catalog/in-stock/honey-glass-2.jpg'
+        'assets/catalog/in-stock/honey-glass-2.jpg',
+        'assets/catalog/in-stock/honey-glass-3.jpg'
       ],
       weights: [
         { label: 'Горный (1 л / ~1.5 кг)', value: 1500, price: 1800 },
