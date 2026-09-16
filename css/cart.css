@@ -585,8 +585,11 @@
   }
 }
 
-/* ── ПОЛНОЭКРАННЫЙ ВАШ ЗАКАЗ НА МОБИЛЬНЫХ ── */
-@media (max-width: 768px) {
+/* Управляем показом строго через селекторы состояния */
+  .cart-drawer[hidden] {
+    display: none !important;
+  }
+
   .cart-drawer {
     position: fixed !important;
     top: 0 !important;
@@ -599,61 +602,10 @@
     height: 100dvh !important;
     border-radius: 0 !important;
     padding: 16px 16px 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
-    transform: translateY(0) !important; /* Открывается сразу ровно */
+    z-index: 9999 !important;
   }
-
-  .cart-drawer__header {
-    padding-bottom: 12px !important;
-    margin-bottom: 12px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .cart-drawer__title {
-    font-size: 20px !important;
-  }
-
-  /* Список товаров в заказе */
-  .cart-drawer__items {
-    flex: 1 !important;
-    overflow-y: auto !important;
-  }
-
-  .cart-drawer__item {
-    padding: 10px 0 !important;
-  }
-
-  .cart-drawer__item-img {
-    width: 54px !important;
-    height: 54px !important;
-  }
-
-  /* Поля ввода и кнопка заказа */
-  .cart-drawer__footer {
-    margin-top: auto !important;
-    flex-shrink: 0 !important;
-  }
-
-  .cart-drawer__field {
-    margin-top: 10px !important;
-  }
-
-  .cart-drawer__input,
-  .cart-drawer__textarea {
-    width: 100% !important;
-    padding: 10px 12px !important;
-    font-size: 14px !important;
-    border-radius: 8px !important;
-  }
-
-  .cart-drawer__submit-btn {
-    width: 100% !important;
-    padding: 14px !important;
-    font-size: 16px !important;
-    border-radius: 10px !important;
-  }
-}
