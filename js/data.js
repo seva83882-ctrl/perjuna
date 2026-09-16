@@ -92,7 +92,7 @@ const PRODUCTS_DATA = {
         'assets/catalog/in-stock/herbs-4.jpg',
       ],
       weights: [
-        { label: 'Крафт-пакет (сбор трав)', value: 100, price: 500 },
+        { label: 'Крафт-пакет', value: 100, price: 500 },
       ],
       fillings: null,
       basePrice: 500,
