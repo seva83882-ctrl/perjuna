@@ -186,14 +186,14 @@ var PRODUCTS_DATA = {
         { label: '2 кг', value: 2000, price: 2200, mult: 2.0 },
         { label: '2.5 - 3 кг (~2.7 кг)', value: 2700, price: 2970, mult: 2.7 }
       ],
-      fillings: [
-        { id: 'spartak', label: 'Спартак (шоколадный медовик) — 1 100 ₽/кг', pricePerKg: 1100 },
+    fillings: [
+        { id: 'spartak', label: 'Спартак (шоколадный медовик) — 1 700 ₽/кг', pricePerKg: 1700 },
         { id: 'medovik', label: 'Медовик (заварной / Petmol+сыр) — 1 700 ₽/кг', pricePerKg: 1700 },
         { id: 'napoleon', label: 'Наполеон (нежный заварной) — 1 800 ₽/кг', pricePerKg: 1800 },
         { id: 'snickers', label: 'Сникерс (арахис, карамель) — 1 800 ₽/кг', pricePerKg: 1800 },
         { id: 'red-velvet', label: 'Красный бархат — 1 800 ₽/кг', pricePerKg: 1800 }
       ],
-      basePrice: 1540,
+      basePrice: 2380,
       unit: 'шт.',
       popular: true
     },
