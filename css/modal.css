@@ -1,0 +1,563 @@
+﻿/* =============================================================
+   МАМИНЫ СЕКРЕТЫ — Quick View Modal
+   Версия: 1.1 | Компактное фото и сбалансированная сетка
+   Зависимости: variables.css, base.css
+   ============================================================= */
+
+
+/* ═══════════════════════════════════════════════════════════
+   OVERLAY (затемнение)
+   ═══════════════════════════════════════════════════════════ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: var(--color-bg-overlay);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-default);
+  cursor: pointer;
+}
+
+.modal-overlay.is-visible {
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   КОНТЕЙНЕР МОДАЛЬНОГО ОКНА
+   ═══════════════════════════════════════════════════════════ */
+
+.modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  pointer-events: none;
+}
+
+.modal-container.is-visible {
+  pointer-events: auto;
+}
+
+/* ── Само окно (Компактный размер) ───────────────────────── */
+
+.modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: 360px 1fr; /* Аккуратная фиксированная колонка под фото */
+  width: 100%;
+  max-width: 760px;                 /* Компактный десктопный попап вместо 880px */
+  max-height: calc(100vh - var(--space-8));
+  background: var(--color-bg-card);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-modal);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.modal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ЛЕВАЯ КОЛОНКА — ГАЛЕРЕЯ (УМЕНЬШЕННОЕ ФОТО)
+   ═══════════════════════════════════════════════════════════ */
+
+.modal__gallery {
+  position: relative;
+  background: var(--color-border);
+  width: 100%;
+  max-height: 400px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  align-self: center; /* Центрируем фото по высоте, не растягиваем */
+}
+
+/* Слайд */
+.modal__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-default);
+  pointer-events: none;
+}
+
+.modal__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Заглушка если нет картинки */
+.modal__slide-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-border);
+}
+
+.modal__slide-placeholder svg {
+  width: 64px;
+  height: 64px;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* ── Стрелки навигации ───────────────────────────────────── */
+
+.modal__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-bg-card);
+  border: none;
+  border-radius: var(--radius-circle);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(36,21,14,0.16);
+  transition: background var(--duration-base) var(--ease-default),
+              transform  var(--duration-fast) var(--ease-bounce);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.modal__arrow:hover {
+  background: var(--color-bg-page);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.modal__arrow:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.modal__arrow:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.modal__arrow--prev { left: var(--space-3); }
+.modal__arrow--next { right: var(--space-3); }
+
+/* Скрываем стрелки если 1 фото */
+.modal__gallery.single-image .modal__arrow,
+.modal__gallery.single-image .modal__counter {
+  display: none;
+}
+
+/* ── Счётчик «1 / X» ─────────────────────────────────────── */
+
+.modal__counter {
+  position: absolute;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px var(--space-2);
+  background: rgba(36, 21, 14, 0.55);
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-base);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  letter-spacing: var(--tracking-wide);
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ПРАВАЯ КОЛОНКА — КОНТЕНТ
+   ═══════════════════════════════════════════════════════════ */
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+  max-height: calc(100vh - var(--space-8));
+}
+
+.modal__content::-webkit-scrollbar       { width: 4px; }
+.modal__content::-webkit-scrollbar-track { background: transparent; }
+.modal__content::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+
+/* ── Кнопка закрытия (крестик) ───────────────────────────── */
+
+.modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-circle);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background var(--duration-base) var(--ease-default),
+              transform  var(--duration-fast) var(--ease-bounce);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.modal__close:hover {
+  background: var(--color-bg-page);
+  transform: scale(1.08);
+}
+
+.modal__close:active  { transform: scale(0.92); }
+
+.modal__close:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ── Заголовок и бейдж наличия ───────────────────────────── */
+
+.modal__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.modal__name {
+  font-family: var(--font-primary);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.modal__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wide);
+}
+
+.modal__availability--instock {
+  color: var(--color-success);
+}
+
+.modal__availability--preorder {
+  color: var(--color-amber-deeper);
+}
+
+.modal__availability-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Описание товара ─────────────────────────────────────── */
+
+.modal__desc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ── Разделитель ─────────────────────────────────────────── */
+
+.modal__divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin-block: var(--space-1);
+}
+
+/* ── Блок опций (веса / начинки) ─────────────────────────── */
+
+.modal__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.modal__option-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+.modal__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ── Степпер количества ──────────────────────────────────── */
+
+.modal__qty-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.modal__qty-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  white-space: nowrap;
+}
+
+.modal__stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  overflow: hidden;
+}
+
+.modal__stepper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-regular);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-default);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.modal__stepper-btn:hover  { background: rgba(36,21,14,0.06); }
+.modal__stepper-btn:active { background: rgba(36,21,14,0.1); }
+
+.modal__stepper-btn:focus-visible {
+  outline: none;
+  box-shadow: inset var(--shadow-focus);
+}
+
+.modal__stepper-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.modal__stepper-val {
+  min-width: 32px;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  padding-inline: var(--space-1);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  line-height: 30px;
+  user-select: none;
+}
+
+/* ── Итоговая цена ───────────────────────────────────────── */
+
+.modal__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.modal__price {
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-extrabold);
+  color: var(--color-text-primary);
+  line-height: 1;
+  transition: color var(--duration-base) var(--ease-default);
+}
+
+.modal__price.is-updating {
+  color: var(--color-amber-dark);
+}
+
+.modal__price-note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── Кнопка «+ В корзину» ────────────────────────────────── */
+
+.modal__add-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-btn-primary-bg);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-base);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: background var(--duration-base) var(--ease-default),
+              transform  var(--duration-fast) var(--ease-bounce),
+              box-shadow var(--duration-base) var(--ease-default);
+  box-shadow: var(--shadow-btn);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  margin-top: auto;
+}
+
+.modal__add-btn:hover {
+  background: var(--color-btn-primary-hover);
+  box-shadow: var(--shadow-btn), 0 6px 16px rgba(36,21,14,0.2);
+  transform: translateY(-1px);
+}
+
+.modal__add-btn:active   { transform: translateY(0); box-shadow: var(--shadow-btn); }
+
+.modal__add-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus), var(--shadow-btn);
+}
+
+/* Состояние «добавлено» */
+.modal__add-btn.is-added {
+  background: var(--color-success);
+  transform: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   БЛОКИРОВКА СКРОЛЛА СТРАНИЦЫ
+   ═══════════════════════════════════════════════════════════ */
+
+body.modal-open {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   АДАПТИВНОСТЬ
+   ═══════════════════════════════════════════════════════════ */
+
+/* Планшет ≤ 768px: вертикальный sheet */
+@media (max-width: 768px) {
+
+  .modal-container {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    max-width: 100%;
+    width: 100%;
+    max-height: 92dvh;
+    border-radius: var(--radius-base) var(--radius-base) 0 0;
+    transform: translateY(40px);
+  }
+
+  .modal.is-visible {
+    transform: translateY(0);
+  }
+
+  /* Декоративная ручка свайпа */
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: var(--space-2);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+    z-index: 5;
+  }
+
+  .modal__gallery {
+    aspect-ratio: 4 / 3;
+    max-height: 38dvh;
+  }
+
+  .modal__content {
+    padding: var(--space-5) var(--space-4) var(--space-6);
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .modal__name { font-size: var(--text-lg); }
+
+  .modal__close {
+    top: var(--space-3);
+    right: var(--space-3);
+  }
+
+  .modal__counter {
+    bottom: var(--space-3);
+    left: var(--space-3);
+    right: auto;
+  }
+}
+
+/* Маленький мобильный ≤ 479px */
+@media (max-width: 479px) {
+
+  .modal__gallery {
+    aspect-ratio: 1 / 1;
+    max-height: 50vw;
+  }
+
+  .modal__name { font-size: var(--text-base); }
+  .modal__desc { font-size: var(--text-xs); }
+
+  .modal__add-btn {
+    font-size: var(--text-sm);
+    padding: var(--space-3) var(--space-4);
+  }
+}

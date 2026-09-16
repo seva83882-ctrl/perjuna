@@ -1,0 +1,448 @@
+﻿/* =============================================================
+   ПЕРЖАНА — Base Styles: Reset, Typography, Container, Buttons
+   Версия: 1.0 | Шаг 1
+   Зависимости: variables.css (должен подключаться раньше)
+   ============================================================= */
+
+/* ─── GOOGLE FONTS ───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700;800&display=swap');
+
+
+/* ─── CSS RESET (modern minimal) ────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Медиа-элементы */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  object-fit: cover;
+  height: auto;
+}
+
+/* Текстовые элементы */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Формы */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* SVG */
+svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Таблицы */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Изоляция стека наложения */
+#root,
+.app-root {
+  isolation: isolate;
+}
+
+
+/* ─── БАЗОВАЯ ТИПОГРАФИКА ────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+h1 { font-size: var(--text-hero); font-weight: var(--font-extrabold); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-md); }
+
+p {
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* Вторичный текст / подписи */
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted      { color: var(--color-text-muted); }
+.text-sm         { font-size: var(--text-sm); }
+.text-xs         { font-size: var(--text-xs); }
+
+/* Акцентный текст */
+.text-amber  { color: var(--color-amber-dark); }
+.text-price  {
+  font-family: var(--font-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+}
+
+/* Разделитель-орнамент */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  color: var(--color-amber-dark);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+
+/* ─── КОНТЕЙНЕР ─────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Узкий контейнер для текстовых блоков */
+.container--narrow {
+  max-width: 720px;
+}
+
+
+/* ─── КНОПКИ ─────────────────────────────────────────────── */
+
+/* Базовый класс — всегда комбинируется с модификатором */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: var(--transition-base);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Фокус для всех кнопок (доступность) */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* --- Основная тёмная кнопка (Смотреть каталог) --- */
+.btn--primary {
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-btn-primary-hover);
+  box-shadow: var(--shadow-btn), 0 4px 12px rgba(36, 21, 14, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-btn);
+}
+
+/* --- Янтарная кнопка (В MAX, В корзину) --- */
+.btn--amber {
+  background-color: var(--color-btn-amber-bg);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-btn-amber);
+}
+
+.btn--amber:hover {
+  background-color: var(--color-btn-amber-hover);
+  box-shadow: var(--shadow-btn-amber), 0 4px 14px rgba(217, 119, 6, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn--amber:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-btn-amber);
+}
+
+/* --- Контурная кнопка (О нас →) --- */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.btn--ghost:hover {
+  background-color: rgba(36, 21, 14, 0.05);
+  border-color: var(--color-text-secondary);
+}
+
+/* --- Маленькая кнопка (+В корзину на карточке) --- */
+.btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-base);
+}
+
+/* --- Иконка-кнопка корзины на карточке --- */
+.btn--icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--radius-base);
+  flex-shrink: 0;
+}
+
+/* --- Ссылка-кнопка (О нас →) --- */
+.btn--link {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  text-underline-offset: 3px;
+  gap: var(--space-2);
+}
+
+.btn--link:hover {
+  color: var(--color-amber-dark);
+}
+
+/* --- Полноширинная --- */
+.btn--full { width: 100%; }
+
+/* Disabled состояние для всех кнопок */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ─── ЧИПСЫ / ТЕГИ ВЫБОРА (вес, начинки) ─────────────────── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: var(--transition-color), var(--transition-shadow);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chip:hover {
+  border-color: var(--color-amber-dark);
+  color: var(--color-amber-darker, #92400E);
+}
+
+.chip.is-active,
+.chip[aria-pressed="true"] {
+  background-color: var(--color-amber-tint);
+  border-color: var(--color-amber-dark);
+  color: var(--color-amber-deeper);
+  font-weight: var(--font-semibold);
+}
+
+.chip:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+
+/* ─── ИЗОБРАЖЕНИЯ-ЗАГЛУШКИ ───────────────────────────────── */
+
+/* Показывается, если картинка не загружена */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.img-placeholder::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32' fill='none'%3E%3Crect x='1' y='1' width='38' height='30' rx='3' stroke='%23A0856C' stroke-width='1.5'/%3E%3Cpath d='M1 22l10-10 8 8 6-6 14 12' stroke='%23A0856C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28' cy='10' r='3' stroke='%23A0856C' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.6;
+}
+
+
+/* ─── ДОСТУПНОСТЬ ─────────────────────────────────────────── */
+
+/* Скрытый элемент только для скрин-ридеров */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Глобальный стиль фокуса */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Скип-навигация */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-btn-primary-bg);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-base);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+
+/* ─── УТИЛИТЫ ─────────────────────────────────────────────── */
+
+.sr-only,
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Flex-утилиты */
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-column  { display: flex; flex-direction: column; }
+.gap-2  { gap: var(--space-2); }
+.gap-3  { gap: var(--space-3); }
+.gap-4  { gap: var(--space-4); }
+.gap-6  { gap: var(--space-6); }
+
+/* Секции */
+.section {
+  padding-block: var(--space-16);
+}
+
+.section--sm {
+  padding-block: var(--space-10);
+}
+
+/* Скролл-якорь с отступом под sticky-nav */
+[id] {
+  scroll-margin-top: 80px;
+}
