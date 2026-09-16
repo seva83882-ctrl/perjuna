@@ -1,6 +1,6 @@
 /* =============================================================
    ПЕРЖАНА / МАМИНЫ СЕКРЕТЫ — Hero & Header Styles
-   Версия: 1.0 | Шаг 2
+   Версия: 2.0 (Mobile Perfect Fix)
    Зависимости: variables.css, base.css
    ============================================================= */
 
@@ -12,19 +12,27 @@
 .site-header {
   position: sticky;
   top: 0;
+  width: 100%;
+  max-width: 100vw;
   z-index: var(--z-sticky);
   background-color: var(--color-bg-page);
   box-shadow: var(--shadow-nav);
-  /* Лёгкое размытие при прокрутке (подержка: 90%+ браузеров) */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
 }
 
 .header__inner {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  justify-content: space-between;
+  gap: var(--space-4);
   height: 64px;
+  width: 100%;
+  max-width: var(--container-max, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+  box-sizing: border-box;
 }
 
 /* ── Логотип ─────────────────────────────────────────────── */
@@ -70,7 +78,7 @@
   white-space: nowrap;
 }
 
-/* ── Навигация ───────────────────────────────────────────── */
+/* ── Навигация (десктоп) ─────────────────────────────────── */
 
 .header__nav {
   flex: 1;
@@ -83,6 +91,8 @@
   align-items: center;
   gap: var(--space-1);
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .header__nav-link {
@@ -117,7 +127,6 @@
   background: rgba(36, 21, 14, 0.05);
 }
 
-/* Оранжевая линия — ТОЛЬКО у активного пункта */
 .header__nav-link.is-active::after {
   transform: scaleX(1);
 }
@@ -133,7 +142,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-base);
   font-size: var(--text-sm);
@@ -171,15 +180,15 @@
   font-weight: var(--font-medium);
 }
 
-/* ── Бургер (только мобильный) ───────────────────────────── */
+/* ── Бургер (мобильный) ──────────────────────────────────── */
 
 .header__burger {
   display: none;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   padding: 6px;
   border: none;
   background: none;
@@ -187,6 +196,7 @@
   border-radius: var(--radius-base);
   transition: background var(--duration-base) var(--ease-default);
   flex-shrink: 0;
+  margin: 0;
 }
 
 .header__burger:hover {
@@ -203,7 +213,6 @@
     opacity var(--duration-fast) var(--ease-default);
 }
 
-/* Бургер «крест» при открытом меню */
 .mobile-nav-open .header__burger-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -223,21 +232,22 @@
   position: absolute;
   top: 64px;
   left: 0;
-  right: 0;
+  width: 100%;
+  max-width: 100vw;
   background: var(--color-bg-page);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: var(--shadow-dropdown);
+  box-shadow: 0 10px 24px rgba(36, 21, 14, 0.08);
   z-index: var(--z-dropdown);
-  padding: var(--space-4) 0;
-  animation: mobileNavSlide var(--duration-slow) var(--ease-out) both;
+  padding: var(--space-3) 0;
+  box-sizing: border-box;
+  animation: mobileNavSlide var(--duration-fast) var(--ease-out) both;
 }
 
 @keyframes mobileNavSlide {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -248,12 +258,15 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .mobile-nav__link {
   display: block;
-  padding: var(--space-3) var(--container-padding);
-  font-size: var(--text-md);
+  padding: 14px 20px;
+  font-size: var(--text-base);
   font-weight: var(--font-medium);
   color: var(--color-text-primary);
   text-decoration: none;
@@ -265,19 +278,18 @@
   background: rgba(36, 21, 14, 0.05);
 }
 
-
-/* Плавный скролл на весь документ */
+/* Скролл и привязка якорей */
 html {
   scroll-behavior: smooth;
 }
 
-/* Отступ для anchor-секций — компенсация высоты шапки (72px) */
 #hero,
 #catalog,
 #about,
 #footer {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 74px;
 }
+
 
 /* ═══════════════════════════════════════════════════════════
    HERO-СЕКЦИЯ
@@ -285,13 +297,14 @@ html {
 
 .hero {
   position: relative;
-  overflow: visible;
-  /* SVG струя уходит вниз за границы секции */
-  padding-block: var(--space-16) var(--space-20);
+  overflow: hidden;
+  padding-block: var(--space-12) var(--space-16);
   background-color: var(--color-bg-page);
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
-/* Тонкий орнаментальный разделитель над каталогом */
 .hero::after {
   content: '';
   position: absolute;
@@ -307,15 +320,15 @@ html {
       transparent);
 }
 
-/* ── Двухколоночная сетка ────────────────────────────────── */
-
 .hero__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: var(--space-10);
+  gap: var(--space-8);
   position: relative;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ── Текстовая колонка ───────────────────────────────────── */
@@ -356,7 +369,6 @@ html {
 
 .hero__title-accent {
   font-style: normal;
-  /* Нижнее подчёркивание янтарным цветом как в макете */
   background-image: linear-gradient(to bottom,
       transparent 65%,
       rgba(217, 119, 6, 0.35) 65%);
@@ -379,52 +391,43 @@ html {
   flex-wrap: wrap;
 }
 
-/* ── Визуальная колонка (банка + SVG) ────────────────────── */
+/* ── Визуальная колонка (банка + SVG десктоп) ────────────── */
 
 .hero__visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Достаточно высокий контейнер, чтобы струя не обрезалась */
-  min-height: 460px;
+  min-height: 440px;
+  width: 100%;
 }
 
-/* SVG-холст — абсолютный поверх всего, не кликабелен */
 .honey-physics-svg {
   position: absolute;
-  /* Холст от верха банки до низа экрана */
   top: 0;
   left: 0;
   width: 100%;
-  /* Высота задаётся JS-скриптом при каждом raf-кадре */
   height: 100%;
   pointer-events: none;
   overflow: visible;
   z-index: 2;
 }
 
-/* Банка мёда */
 .hero__jar-wrap {
   position: relative;
   z-index: 1;
-  width: min(420px, 90%);
+  width: min(400px, 90%);
   aspect-ratio: 1 / 1;
-  /* Мягкая тень под банкой */
-  filter: drop-shadow(0 24px 48px rgba(36, 21, 14, 0.14)) drop-shadow(0 6px 12px rgba(36, 21, 14, 0.08));
+  filter: drop-shadow(0 20px 40px rgba(36, 21, 14, 0.12));
   animation: jarFloat 4s ease-in-out infinite;
 }
 
-/* Лёгкое покачивание банки */
 @keyframes jarFloat {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
-
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
@@ -432,15 +435,14 @@ html {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 0;
   mix-blend-mode: multiply !important;
 }
 
-/* ── Стрелка-подсказка вниз ──────────────────────────────── */
+/* ── Стрелка вниз ────────────────────────────────────────── */
 
 .hero__scroll-cue {
   position: absolute;
-  bottom: var(--space-6);
+  bottom: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -454,6 +456,7 @@ html {
   text-decoration: none;
   transition: var(--transition-base);
   animation: bounceDown 2s ease-in-out infinite;
+  z-index: 5;
 }
 
 .hero__scroll-cue:hover {
@@ -462,160 +465,119 @@ html {
 }
 
 @keyframes bounceDown {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateX(-50%) translateY(0);
   }
-
   50% {
-    transform: translateX(-50%) translateY(5px);
+    transform: translateX(-50%) translateY(4px);
   }
 }
 
 
 /* ═══════════════════════════════════════════════════════════
-   КАТАЛОГ — заголовок и декор (секция-заглушка до Шага 3)
+   МОБИЛЬНАЯ АДАПТАЦИЯ (Планшеты и телефоны)
    ═══════════════════════════════════════════════════════════ */
 
-.catalog__title,
-.about__title {
-  font-family: var(--font-primary);
-  font-size: var(--text-3xl);
-  font-weight: var(--font-bold);
-  text-align: center;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-8);
-  letter-spacing: var(--tracking-tight);
-}
-
-/* Орнаментальная звёздочка под заголовком каталога */
-.catalog__title::after {
-  content: '✦';
-  display: block;
-  font-size: var(--text-sm);
-  color: var(--color-amber-dark);
-  margin-top: var(--space-3);
-  letter-spacing: 0.2em;
-}
-
-.catalog__loading {
-  text-align: center;
-  padding: var(--space-16);
-  color: var(--color-text-muted);
-  font-size: var(--text-base);
-}
-
-
-/* ═══════════════════════════════════════════════════════════
-   МЕДИА-ЗАПРОСЫ — адаптивность
-   ═══════════════════════════════════════════════════════════ */
-
-/* ── Планшет: 768px ──────────────────────────────────────── */
 @media (max-width: 1023px) {
 
   /* Шапка */
+  .header__inner {
+    padding-inline: 16px;
+  }
+
   .header__nav {
     display: none;
-    /* скрываем десктопную nav */
   }
 
   .header__burger {
     display: flex;
-    /* показываем бургер */
   }
 
   .header__cart-btn {
     margin-left: auto;
+    padding: 6px 10px;
+    font-size: 13px;
   }
 
-  .header__logo-tagline {
+  .header__logo-tagline,
+  .header__logo-divider {
     display: none;
   }
 
-  /* Hero: одна колонка, текст сверху, банка снизу */
+  .header__logo-name {
+    font-size: 18px;
+  }
+
+  /* ПОЛНОЕ ОТКЛЮЧЕНИЕ ЛАГАЮЩЕЙ СТРУИ И КАПЛИ НА МОБИЛЬНЫХ */
+  .honey-physics-svg,
+  #honeyPhysicsSvg,
+  #honeyStream,
+  #honeyDrop {
+    display: none !important;
+  }
+
+  /* Хиро */
+  .hero {
+    padding-block: var(--space-6) var(--space-10);
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
   .hero__text {
     order: 1;
   }
 
-  .hero__visual {
-    order: 2;
-    min-height: 320px;
-  }
-
-  .hero__actions {
-    justify-content: center;
-  }
-
-  .hero__jar-wrap {
-    width: min(320px, 80%);
-  }
-
-  .hero__eyebrow {
-    justify-content: center;
-  }
-}
-
-/* ── Мобильный: 480px ─────────────────────────────────────── */
-@media (max-width: 479px) {
-
-  .hero {
-    padding-block: var(--space-8) var(--space-12);
-  }
-
   .hero__title {
-    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-size: clamp(24px, 6.5vw, 32px);
+    margin-bottom: 12px;
   }
 
   .hero__subtitle {
-    font-size: var(--text-base);
-  }
-
-  .hero__jar-wrap {
-    width: min(260px, 85vw);
-  }
-
-  .hero__visual {
-    min-height: 260px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.45;
   }
 
   .hero__actions {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero__visual {
+    order: 2;
+    min-height: auto;
+    margin-top: 8px;
+  }
+
+  .hero__jar-wrap {
+    width: min(250px, 70vw);
+    animation: none; /* Убираем лишние скачки */
+  }
+
+  /* Стрелка вниз под банкой: статичная, аккуратная */
+  .hero__scroll-cue {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 16px auto 0;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero__actions {
     flex-direction: column;
-    gap: var(--space-3);
     width: 100%;
   }
 
-  .hero__actions .btn--primary {
+  .hero__actions .btn--primary,
+  .hero__actions .btn--link {
     width: 100%;
-  }
-}
-
-/* ── Очень маленький: 360px ───────────────────────────────── */
-@media (max-width: 359px) {
-
-  .header__logo-name {
-    font-size: var(--text-lg);
-  }
-
-  .hero__title {
-    font-size: 1.4rem;
-  }
-
-  .hero__jar-wrap {
-    width: min(220px, 90vw);
-  }
-}
-
-/* ── Большой десктоп: 1440px+ ─────────────────────────────── */
-@media (min-width: 1440px) {
-
-  .hero__jar-wrap {
-    width: 480px;
+    justify-content: center;
   }
 }
