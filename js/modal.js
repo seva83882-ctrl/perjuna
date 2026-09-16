@@ -1,4 +1,4 @@
-﻿/**
+/**
  * modal.js
  * =================================================================
  * Мамины секреты — Quick View Modal (карточка товара).
@@ -46,12 +46,27 @@
     return window.innerWidth - document.documentElement.clientWidth;
   }
 
-  /** Текущая цена с учётом выбора веса и количества */
+  /** Текущая цена с учётом выбранного торта, веса и количества */
   function calcCurrentPrice() {
     var p = state.product;
     if (!p) return 0;
-    var unitPrice = p.basePrice;
-    if (p.weights && p.weights[state.selectedWeight]) {
+
+    // Если у товара есть начинки/торты с ценой за кг:
+    if (p.fillings && p.fillings.length > 0 && state.selectedFilling) {
+      var currentFilling = p.fillings.find(function (f) {
+        return f.id === state.selectedFilling;
+      });
+
+      if (currentFilling && currentFilling.pricePerKg) {
+        var currentWeight = p.weights && p.weights[state.selectedWeight];
+        var mult = currentWeight && currentWeight.mult ? currentWeight.mult : 1.4;
+        return Math.round(currentFilling.pricePerKg * mult) * state.quantity;
+      }
+    }
+
+    // Для остальных товаров (мёд, масло, травы, эклеры и т.д.):
+    var unitPrice = p.basePrice || 0;
+    if (p.weights && p.weights[state.selectedWeight] && p.weights[state.selectedWeight].price) {
       unitPrice = p.weights[state.selectedWeight].price;
     }
     return unitPrice * state.quantity;
@@ -78,8 +93,8 @@
   /* ── РЕНДЕР ГАЛЕРЕИ ──────────────────────────────────────── */
 
   function buildGallery(product) {
-    var images = product.images;
-    var isSingle = images.length === 1;
+    var images = product.images || [];
+    var isSingle = images.length <= 1;
 
     var galleryEl = document.createElement('div');
     galleryEl.className = 'modal__gallery' + (isSingle ? ' single-image' : '');
@@ -93,12 +108,11 @@
       slide.setAttribute('aria-label', 'Фото ' + (idx + 1) + ' из ' + images.length);
 
       var img = document.createElement('img');
-      img.src     = src;
-      img.alt     = product.name + ' — фото ' + (idx + 1);
-      img.loading = idx === 0 ? 'eager' : 'lazy';
+      img.src      = src;
+      img.alt      = product.name + ' — фото ' + (idx + 1);
+      img.loading  = idx === 0 ? 'eager' : 'lazy';
       img.decoding = 'async';
       img.onerror = function () {
-        /* Заглушка горы если картинка не нашлась */
         slide.innerHTML =
           '<div class="modal__slide-placeholder">' +
             '<svg viewBox="0 0 64 64" fill="none" aria-hidden="true">' +
@@ -159,7 +173,7 @@
 
   /** Переключает слайд на delta (-1 или +1) */
   function navigate(delta) {
-    var images = state.product.images;
+    var images = state.product.images || [];
     if (images.length <= 1) return;
 
     var slides   = modalEl.querySelectorAll('.modal__slide');
@@ -229,13 +243,11 @@
         chip.className = 'chip' + (idx === state.selectedWeight ? ' is-active' : '');
         chip.textContent = w.label;
         chip.setAttribute('aria-pressed', String(idx === state.selectedWeight));
-        chip.setAttribute('aria-label',   w.label + ' — ' + formatPrice(w.price));
         chip.setAttribute('data-weight-idx', String(idx));
 
         chip.addEventListener('click', function () {
           state.selectedWeight = idx;
 
-          /* Переключаем активный чип */
           wChips.querySelectorAll('.chip').forEach(function (c, i) {
             c.classList.toggle('is-active', i === idx);
             c.setAttribute('aria-pressed', String(i === idx));
@@ -250,9 +262,9 @@
       optionsEl.appendChild(wChips);
     }
 
-    /* ─ Чипсы начинок ─ */
+    /* ─ Чипсы начинок / выбора торта ─ */
     if (product.fillings && product.fillings.length > 0) {
-      /* Дефолтная начинка — первая */
+      // По умолчанию активна первая позиция
       state.selectedFilling = product.fillings[0].id;
 
       var fLabel = document.createElement('div');
@@ -281,6 +293,8 @@
             c.classList.toggle('is-active', i === idx);
             c.setAttribute('aria-pressed', String(i === idx));
           });
+
+          updatePrice(); // Моментальный пересчёт цены при смене торта
         });
 
         fChips.appendChild(chip);
@@ -394,10 +408,12 @@
           : null,
         quantity: state.quantity,
         price:    calcCurrentPrice(),
-        image:    product.images[0] || '',
+        image:    (product.images && product.images[0]) || '',
       };
 
-      window.addToCart(cartItem);
+      if (typeof window.addToCart === 'function') {
+        window.addToCart(cartItem);
+      }
 
       /* Анимация подтверждения */
       addBtn.classList.add('is-added');
@@ -431,8 +447,8 @@
   /* ── ПЕРЕСЧЁТ ЦЕНЫ ───────────────────────────────────────── */
 
   function updatePrice() {
-    var priceEl    = modalEl && modalEl.querySelector('#modalPrice');
-    var priceNote  = modalEl && modalEl.querySelector('#modalPriceNote');
+    var priceEl   = modalEl && modalEl.querySelector('#modalPrice');
+    var priceNote = modalEl && modalEl.querySelector('#modalPriceNote');
     if (!priceEl) return;
 
     /* Мигание при изменении */
@@ -465,7 +481,7 @@
     modal.setAttribute('aria-modal', 'true');
     modal.setAttribute('aria-labelledby', 'modalTitle');
 
-    /* Кнопка закрытия (абсолютная, поверх обоих колонок) */
+    /* Кнопка закрытия */
     var closeBtn = document.createElement('button');
     closeBtn.type      = 'button';
     closeBtn.className = 'modal__close';
@@ -489,7 +505,7 @@
   /* ── ОТКРЫТЬ МОДАЛКУ ─────────────────────────────────────── */
 
   function openModal(productId) {
-    var product = getProductById(productId);
+    var product = typeof getProductById === 'function' ? getProductById(productId) : null;
     if (!product) {
       console.warn('[Modal] Товар не найден:', productId);
       return;
@@ -518,7 +534,7 @@
     containerEl.removeAttribute('aria-hidden');
     overlayEl.removeAttribute('aria-hidden');
 
-    /* Запускаем transition через два rAF (чтобы браузер успел отрисовать) */
+    /* Запускаем transition через два rAF */
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
         overlayEl.classList.add('is-visible');
@@ -557,7 +573,7 @@
       modalEl = null;
       document.body.classList.remove('modal-open');
       document.documentElement.style.removeProperty('--scrollbar-width');
-    }, 360);  /* совпадает с --duration-slow */
+    }, 360);
 
     state.isOpen = false;
   }
