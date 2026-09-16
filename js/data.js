@@ -6,20 +6,20 @@
 var PRODUCTS_DATA = {
 
   /* ═══════════════════════════════════════════════════════════
-     ВСЕГДА В НАЛИЧИИ (Пасека и сборы)
+     ВСЕГДА В НАЛИЧИИ (Пасека Алтая и горные сборы Дагестана)
      ═══════════════════════════════════════════════════════════ */
   'in-stock': [
 
-   {
+    {
       id: 'honey-glass',
       category: 'in-stock',
       name: 'Мёд пасечный натуральный',
-      subtitle: 'Ведёрко 1 л (~1.5 кг) прямо с пасеки · от 1 100 ₽',
+      subtitle: 'Семейная пасека, Алтайский край · ведёрко 1 л (~1.5 кг)',
       description:
-        'Собственная семейная пасека. Чистый натуральный мед без добавок, сахара и термической обработки. Фасуется в ведёрки объёмом 1 литр (около 1.5 кг чистого веса).',
+        'Собственная семейная пасека в экологически чистом районе Алтайского края. Натуральный зрелый мёд без сахара, добавок и термической обработки. Фасуется в ведёрки объёмом 1 литр (около 1.5 кг чистого веса).',
       images: [
-        'assets/catalog/in-stock/honey-glass-1.jpg',
-        'assets/catalog/in-stock/honey-glass-2.jpg'
+        '/assets/catalog/in-stock/honey-glass-1.jpg',
+        '/assets/catalog/in-stock/honey-glass-2.jpg'
       ],
       weights: [
         { label: 'Разнотравье (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 },
@@ -37,18 +37,100 @@ var PRODUCTS_DATA = {
       id: 'honeycomb',
       category: 'in-stock',
       name: 'Мёд в сотах (цельная рамка)',
-      subtitle: 'Цельная рамка прямо из улья (~1.5 кг)',
+      subtitle: 'Пасека Алтая · цельная рамка из улья (~1.5 кг)',
       description:
-        'Свежий зрелый мед в натуральных восковых сотах. Продаётся только цельной рамкой прямо с пасеки, без нарезки. Вес рамки около 1.5 кг.',
+        'Свежий зрелый мёд в запечатанных восковых сотах с нашей алтайской пасеки. Продаётся только цельной деревянной рамкой, без нарезки, сохраняя первозданную пользу.',
       images: [
-        'assets/catalog/in-stock/honeycomb.jpg'
+        '/assets/catalog/in-stock/honeycomb.jpg'
       ],
       weights: [
-        { label: 'Цельная рамка (~1.5 кг)', value: 1500, price: 2500 }
+        { label: 'Цельная рамка (~1.5 кг) — 2 500 ₽', value: 1500, price: 2500 }
       ],
       fillings: null,
       basePrice: 2500,
       unit: 'рамка',
+      popular: false
+    },
+
+    {
+      id: 'herbs',
+      category: 'in-stock',
+      name: 'Горные травы Дагестана',
+      subtitle: 'Майский сбор трав · крафт-пакет 18×25 см',
+      description:
+        'Майский ручной сбор дикорастущих трав с высокогорных лугов Дагестана. Высушены естественным способом в тени без потери эфирных масел и целебного аромата. Фасуются в большие крафт-пакеты 18×25 см.',
+      images: [
+        '/assets/catalog/in-stock/herbs-1.jpg',
+        '/assets/catalog/in-stock/herbs-2.jpg',
+        '/assets/catalog/in-stock/herbs-3.jpg',
+        '/assets/catalog/in-stock/herbs-4.jpg'
+      ],
+      weights: [
+        { label: 'Мята горная (крафт-пакет 18×25 см) — 600 ₽', value: 1, price: 600 },
+        { label: 'Чабрец душистый (крафт-пакет 18×25 см) — 500 ₽', value: 1, price: 500 },
+        { label: 'Полынь целебная (крафт-пакет 18×25 см) — 500 ₽', value: 1, price: 500 }
+      ],
+      fillings: null,
+      basePrice: 500,
+      unit: 'пакет',
+      popular: true
+    },
+
+    {
+      id: 'bee-perga',
+      category: 'in-stock',
+      name: 'Перга пчелиная',
+      subtitle: 'Алтайский край · 1 100 ₽ за 100 г',
+      description:
+        'Чистая сотовая перга ручной выборки («пчелиный хлеб») с нашей пасеки на Алтае. Мощный природный биостимулятор и концентрат аминокислот для иммунитета.',
+      images: [
+        '/assets/catalog/in-stock/bee-perga.jpg'
+      ],
+      weights: [
+        { label: 'Пакетик 100 г — 1 100 ₽', value: 100, price: 1100 }
+      ],
+      fillings: null,
+      basePrice: 1100,
+      unit: 'пакетик',
+      popular: false
+    },
+
+    {
+      id: 'bee-pollen',
+      category: 'in-stock',
+      name: 'Пыльца цветочная',
+      subtitle: 'Свежий сбор, Алтай · 800 ₽ за 100 г',
+      description:
+        'Натуральная цветочная пыльца (пчелиная обножка) с медоносов Алтайского края. Натуральный витаминно-минеральный комплекс для бодрости и здоровья.',
+      images: [
+        '/assets/catalog/in-stock/bee-pollen-1.jpg',
+        '/assets/catalog/in-stock/bee-pollen-2.jpg'
+      ],
+      weights: [
+        { label: 'Пакетик 100 г — 800 ₽', value: 100, price: 800 }
+      ],
+      fillings: null,
+      basePrice: 800,
+      unit: 'пакетик',
+      popular: false
+    },
+
+    {
+      id: 'bee-podmor',
+      category: 'in-stock',
+      name: 'Пчелиный подмор',
+      subtitle: 'Алтайская пасека · 1 100 ₽ за 100 г',
+      description:
+        'Качественный сухой подмор от здоровых семей с алтайской пасеки. Богат хитозаном и меланином. Применяется для приготовления домашних настоек и растирок.',
+      images: [
+        '/assets/catalog/in-stock/bee-podmor.jpg'
+      ],
+      weights: [
+        { label: 'Пакетик 100 г — 1 100 ₽', value: 100, price: 1100 }
+      ],
+      fillings: null,
+      basePrice: 1100,
+      unit: 'пакетик',
       popular: false
     },
 
@@ -58,100 +140,18 @@ var PRODUCTS_DATA = {
       name: 'Сливочное топленое масло',
       subtitle: 'Домашняя медленная топка',
       description:
-        'Натуральное сливочное масло, перетопленное вручную на медленном огне. Чистый янтарный цвет, нежный сливочный аромат, без молочного белка и лишней влаги.',
+        'Натуральное сливочное масло, перетопленное вручную на медленном огне по старинному рецепту. Чистый янтарный цвет, нежный сливочный аромат, без молочного белка и примесей.',
       images: [
-        'assets/catalog/in-stock/ghee-1.jpg',
-        'assets/catalog/in-stock/ghee-2.jpg'
+        '/assets/catalog/in-stock/ghee-1.jpg',
+        '/assets/catalog/in-stock/ghee-2.jpg'
       ],
       weights: [
-        { label: 'Банка 500 г', value: 500, price: 750 },
-        { label: 'Банка 1 кг', value: 1000, price: 1400 }
+        { label: 'Банка 500 г — 750 ₽', value: 500, price: 750 },
+        { label: 'Банка 1 кг — 1 400 ₽', value: 1000, price: 1400 }
       ],
       fillings: null,
       basePrice: 750,
-      unit: 'г',
-      popular: false
-    },
-
-   {
-      id: 'herbs',
-      category: 'in-stock',
-      name: 'Горные травы Дагестана',
-      subtitle: 'Майский ручной сбор в крафт-пакетах (100 г)',
-      description:
-        'Майский сбор дикорастущих трав с высокогорных полей Дагестана. Высушены естественным способом без потери эфирных масел.',
-      images: [
-        'assets/catalog/in-stock/herbs-1.jpg',
-        'assets/catalog/in-stock/herbs-2.jpg',
-        'assets/catalog/in-stock/herbs-3.jpg',
-        'assets/catalog/in-stock/herbs-4.jpg'
-      ],
-      weights: [
-        { label: 'Мята горная (крафт-пакет ~100 г) — 600 ₽', value: 100, price: 600 },
-        { label: 'Чабрец душистый (крафт-пакет ~100 г) — 500 ₽', value: 100, price: 500 },
-        { label: 'Полынь целебная (крафт-пакет ~100 г) — 500 ₽', value: 100, price: 500 }
-      ],
-      fillings: null,
-      basePrice: 500,
-      unit: 'пакет',
-      popular: false
-    },
-
-    {
-      id: 'bee-perga',
-      category: 'in-stock',
-      name: 'Перга пчелиная',
-      subtitle: 'Пчелиный хлеб с пасеки, 1 100 ₽ за 100 г',
-      description:
-        'Чистая сотовая перга ручной выборки. Естественный природный источник витаминов и аминокислот для укрепления иммунитета.',
-      images: [
-        'assets/catalog/in-stock/bee-perga.jpg'
-      ],
-      weights: [
-        { label: 'Пакетик 100 г', value: 100, price: 1100 }
-      ],
-      fillings: null,
-      basePrice: 1100,
-      unit: 'г',
-      popular: false
-    },
-
-    {
-      id: 'bee-pollen',
-      category: 'in-stock',
-      name: 'Пыльца цветочная',
-      subtitle: 'Свежий сбор, 800 ₽ за 100 г',
-      description:
-        'Натуральная цветочная пыльца (обножка), собранная пчёлами на горных лугах. Отличная витаминная добавка к пище.',
-      images: [
-        'assets/catalog/in-stock/bee-pollen-1.jpg',
-        'assets/catalog/in-stock/bee-pollen-2.jpg'
-      ],
-      weights: [
-        { label: 'Пакетик 100 г', value: 100, price: 800 }
-      ],
-      fillings: null,
-      basePrice: 800,
-      unit: 'г',
-      popular: false
-    },
-
-    {
-      id: 'bee-podmor',
-      category: 'in-stock',
-      name: 'Пчелиный подмор',
-      subtitle: 'Для настоек и растирок, 1 100 ₽ за 100 г',
-      description:
-        'Сухой пчелиный подмор от здоровых пчелиных семей с нашей пасеки. Используется для домашних целебных настоек и растирок.',
-      images: [
-        'assets/catalog/in-stock/bee-podmor.jpg'
-      ],
-      weights: [
-        { label: 'Пакетик 100 г', value: 100, price: 1100 }
-      ],
-      fillings: null,
-      basePrice: 1100,
-      unit: 'г',
+      unit: 'банка',
       popular: false
     }
 
