@@ -161,12 +161,11 @@ var PRODUCTS_DATA = {
      ПОД ЗАКАЗ К ДАТЕ (Выпечка и домашние торты)
      ═══════════════════════════════════════════════════════════ */
   'pre-order': [
-
     {
       id: 'cakes-custom',
       category: 'pre-order',
       name: 'Домашние торты на заказ',
-      subtitle: 'От 1 100 ₽ до 1 800 ₽ за 1 кг',
+      subtitle: 'От 1 700 ₽ до 1 800 ₽ за 1 кг',
       description:
         'Пеку вручную к вашей дате. Использую только натуральные сливки Petmol 33%, сливочное масло, творожный сыр и бельгийский шоколад. Без растительных жиров и маргарина. Минимальный вес торта 1.3–1.5 кг.',
       images: [
@@ -175,23 +174,20 @@ var PRODUCTS_DATA = {
         'assets/catalog/pre-order/cake-03.jpg',
         'assets/catalog/pre-order/cake-04.jpg',
         'assets/catalog/pre-order/cake-05.jpg',
-        'assets/catalog/pre-order/cake-06.jpg',
-        'assets/catalog/pre-order/cake-07.jpg',
-        'assets/catalog/pre-order/cake-08.jpg',
-        'assets/catalog/pre-order/cake-09.jpg',
-        'assets/catalog/pre-order/cake-10.jpg'
+        'assets/catalog/pre-order/cake-06.jpg'
       ],
       weights: [
-        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 1540, mult: 1.4 },
-        { label: '2 кг', value: 2000, price: 2200, mult: 2.0 },
-        { label: '2.5 - 3 кг (~2.7 кг)', value: 2700, price: 2970, mult: 2.7 }
+        { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 2380, mult: 1.4 },
+        { label: '2 кг', value: 2000, price: 3400, mult: 2.0 },
+        { label: '2.5 - 3 кг (~2.7 кг)', value: 2700, price: 4590, mult: 2.7 }
       ],
-    fillings: [
-        { id: 'spartak', label: 'Спартак (шоколадный медовик) — 1 700 ₽/кг', pricePerKg: 1700 },
-        { id: 'medovik', label: 'Медовик (заварной / Petmol+сыр) — 1 700 ₽/кг', pricePerKg: 1700 },
-        { id: 'napoleon', label: 'Наполеон (нежный заварной) — 1 800 ₽/кг', pricePerKg: 1800 },
-        { id: 'snickers', label: 'Сникерс (арахис, карамель) — 1 800 ₽/кг', pricePerKg: 1800 },
-        { id: 'red-velvet', label: 'Красный бархат — 1 800 ₽/кг', pricePerKg: 1800 }
+      fillings: [
+        { id: 'medovik', label: 'Торт «Медовик» — 1 700 ₽/кг', pricePerKg: 1700 },
+        { id: 'medovik-choc', label: 'Торт «Медовик Шоколадный» — 1 700 ₽/кг', pricePerKg: 1700 },
+        { id: 'spartak', label: 'Торт «Спартак» — 1 700 ₽/кг', pricePerKg: 1700 },
+        { id: 'fruit-biscuit', label: 'Торт «Фруктовый Бисквитный» — 1 700 ₽/кг', pricePerKg: 1700 },
+        { id: 'napoleon', label: 'Торт «Господин Наполеон» — 1 800 ₽/кг', pricePerKg: 1800 },
+        { id: 'snickers', label: 'Торт «Сникерс» — 1 800 ₽/кг', pricePerKg: 1800 }
       ],
       basePrice: 2380,
       unit: 'шт.',
@@ -202,7 +198,7 @@ var PRODUCTS_DATA = {
       id: 'san-sebastian',
       category: 'pre-order',
       name: 'Чизкейк Сан-Себастьян',
-      subtitle: 'Баскский сливочный чизкейк, 1 800 ₽ за кг',
+      subtitle: 'Баскский сливочный чизкейк, 2 000 ₽ за 1 кг',
       description:
         'Нежнейший чизкейк с обожженной карамельной корочкой и кремовой серединкой. Приготовлен на натуральных сливках Petmol 33% и творожном сыре, без муки.',
       images: [
@@ -210,53 +206,51 @@ var PRODUCTS_DATA = {
         'assets/catalog/pre-order/san-sebastian-2.jpg'
       ],
       weights: [
-        { label: '1 кг (целый чизкейк)', value: 1000, price: 1800 },
-        { label: '1.5 кг', value: 1500, price: 2700 }
+        { label: '1/6', value: 160, price: 400 },
+        { label: '1 kg', value: 1000, price: 2000 }
       ],
       fillings: null,
-      basePrice: 1800,
-      unit: 'кг',
+      basePrice: 400,
+      unit: 'шт.',
       popular: true
     },
 
     {
       id: 'eclairs',
       category: 'pre-order',
-      name: 'Заварные эклеры',
-      subtitle: 'Заварной крем и бельгийский шоколад, 200 ₽ за шт.',
+      name: 'Эклер «Заварной крем»',
+      subtitle: '220 ₽ за шт.',
       description:
         'Тонкое домашнее заварное тесто на сливочном масле, наполненное нежным заварным кремом и политое настоящим бельгийским шоколадом.',
       images: [
         'assets/catalog/pre-order/eclairs.jpg'
       ],
       weights: [
-        { label: '4 шт. (800 ₽)', value: 4, price: 800 },
-        { label: '6 шт. (1 200 ₽)', value: 6, price: 1200 },
-        { label: '10 шт. (2 000 ₽)', value: 10, price: 2000 }
+        { label: '1 шт.', value: 1, price: 220 }
       ],
       fillings: null,
-      basePrice: 800,
-      unit: 'набор',
+      basePrice: 220,
+      unit: 'шт.',
       popular: false
     },
 
     {
       id: 'trifles',
       category: 'pre-order',
-      name: 'Трайфлы в упаковке',
-      subtitle: 'Упаковка 850 мл — 1 000 ₽',
+      name: 'Трайфлы 850ml',
+      subtitle: '1 000 ₽',
       description:
-        'Порционный десерт в удобной упаковке 850 мл: шоколадный бисквит, ягоды или банан, воздушный крем из натуральных сливок Petmol и бельгийский шоколад.',
+        'Порционный десерт в удобной упаковке 850 мл: воздушный бисквит, крем из натуральных сливок Petmol и бельгийский шоколад.',
       images: [
-        'assets/catalog/pre-order/trifles-1.jpg',
-        'assets/catalog/pre-order/trifles-2.jpg'
+        'assets/catalog/pre-order/trifles-1.jpg'
       ],
       weights: [
-        { label: 'Упаковка 850 мл', value: 850, price: 1000 }
+        { label: '850 ml', value: 850, price: 1000 }
       ],
       fillings: [
-        { id: 'strawberry', label: 'С клубникой' },
-        { id: 'banana', label: 'С бананом' }
+        { id: 'milk-banana', label: 'Молочный шоколад «Банан» — 1000₽' },
+        { id: 'milk-snickers', label: 'Молочный шоколад «Сникерс» — 1000₽' },
+        { id: 'white-banana', label: 'Белый шоколад «Банан» — 1000₽' }
       ],
       basePrice: 1000,
       unit: 'упаковка',
@@ -266,36 +260,53 @@ var PRODUCTS_DATA = {
     {
       id: 'pakhlava',
       category: 'pre-order',
-      name: 'Пахлава медовая',
-      subtitle: 'Много орехов и горный мед, 1 800 ₽ за кг',
+      name: 'Пахлава «Грецкий орех»',
+      subtitle: '1kg - 1800₽',
       description:
         'Традиционная домашняя пахлава: тончайшие слои теста, щедрая начинка из грецкого ореха и пропитка натуральным медом с пасеки.',
       images: [
         'assets/catalog/pre-order/pakhlava.jpg'
       ],
       weights: [
-        { label: '500 г (коробка)', value: 500, price: 900 },
-        { label: '1 кг (коробка)', value: 1000, price: 1800 }
+        { label: '1 kg', value: 1000, price: 1800 }
       ],
       fillings: null,
-      basePrice: 900,
-      unit: 'г',
+      basePrice: 1800,
+      unit: 'kg',
+      popular: false
+    },
+
+    {
+      id: 'trubochki',
+      category: 'pre-order',
+      name: 'Трубочки «Грецкий орех»',
+      subtitle: '1kg - 1600₽',
+      description:
+        'Хрустящие домашние трубочки с начинкой из отборного грецкого ореха.',
+      images: [
+        'assets/catalog/pre-order/trubki.jpg'
+      ],
+      weights: [
+        { label: '1 kg', value: 1000, price: 1600 }
+      ],
+      fillings: null,
+      basePrice: 1600,
+      unit: 'kg',
       popular: false
     },
 
     {
       id: 'bread-sloeny',
       category: 'pre-order',
-      name: 'Слоёный дагестанский хлеб',
-      subtitle: 'С ароматной ореховой травой',
+      name: 'Хлеб Слоенный «На топленном масле с ореховой травой»',
+      subtitle: '400₽',
       description:
-        'Многослойный домашний хлеб ручной раскатки на сливочном масле с добавлением традиционной пряной ореховой травы.',
+        'Многослойный домашний хлеб ручной раскатки на топленом масле с добавлением традиционной пряной ореховой травы.',
       images: [
         'assets/catalog/pre-order/bread.jpg'
       ],
       weights: [
-        { label: '1 шт. (~400 г)', value: 400, price: 400 },
-        { label: '3 шт.', value: 1200, price: 1100 }
+        { label: '1 шт.', value: 1, price: 400 }
       ],
       fillings: null,
       basePrice: 400,
@@ -306,25 +317,22 @@ var PRODUCTS_DATA = {
     {
       id: 'chudu',
       category: 'pre-order',
-      name: 'Чуду с курицей и картошкой',
-      subtitle: 'Лезгинский сытный пирог, вес ~1.3 кг',
+      name: 'Чуду «Куриное мясо с картошкой»',
+      subtitle: '1100₽',
       description:
-        'Традиционный пирог чуду с куриным филе, картошкой, луком и топленым сливочным маслом. Выпекается строго ко времени самовывоза.',
+        'Традиционный пирог чуду с куриным филе, картошкой, луком и топленым сливочным маслом.',
       images: [
         'assets/catalog/pre-order/chudu.jpg'
       ],
       weights: [
-        { label: '1 пирог (~1.3 кг)', value: 1300, price: 1100 }
+        { label: '1 шт.', value: 1, price: 1100 }
       ],
       fillings: null,
       basePrice: 1100,
       unit: 'шт.',
       popular: false
     }
-
-  ]
-
-};
+  ] 
 
 /* ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (ГЛОБАЛЬНЫЙ ЭКСПОРТ) ───────── */
 
