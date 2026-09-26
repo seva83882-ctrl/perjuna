@@ -169,12 +169,12 @@ var PRODUCTS_DATA = {
       description:
         'Пеку вручную к вашей дате. Использую только натуральные сливки Petmol 33%, сливочное масло, творожный сыр и бельгийский шоколад. Без растительных жиров и маргарина. Минимальный вес торта 1.3–1.5 кг.',
       images: [
-        'assets/catalog/pre-order/cake-01.jpg',
-        'assets/catalog/pre-order/cake-02.jpg',
-        'assets/catalog/pre-order/cake-03.jpg',
-        'assets/catalog/pre-order/cake-04.jpg',
-        'assets/catalog/pre-order/cake-05.jpg',
-        'assets/catalog/pre-order/cake-06.jpg'
+        'assets/catalog/pre-order/cake-1.jpg',
+        'assets/catalog/pre-order/cake-2.jpg',
+        'assets/catalog/pre-order/cake-3.jpg',
+        'assets/catalog/pre-order/cake-4.jpg',
+        'assets/catalog/pre-order/cake-5.jpg',
+        'assets/catalog/pre-order/cake-6.jpg'
       ],
       weights: [
         { label: '1.3 - 1.5 кг (~1.4 кг)', value: 1400, price: 2380, mult: 1.4 },
