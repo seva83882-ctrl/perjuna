@@ -18,8 +18,8 @@ var PRODUCTS_DATA = {
       description:
         'Собственная семейная пасека в экологически чистом районе Алтайского края. Натуральный зрелый мёд без сахара, добавок и термической обработки. Фасуется в ведёрки объёмом 1 литр (около 1.5 кг чистого веса).',
       images: [
-        '/assets/catalog/in-stock/honey-glass-1.jpg',
-        '/assets/catalog/in-stock/honey-glass-2.jpg'
+        'assets/catalog/in-stock/honey-glass-1.jpg',
+        'assets/catalog/in-stock/honey-glass-2.jpg'
       ],
       weights: [
         { label: 'Разнотравье (1 л / ~1.5 кг) — 1 100 ₽', value: 1500, price: 1100 },
@@ -41,7 +41,7 @@ var PRODUCTS_DATA = {
       description:
         'Свежий зрелый мёд в запечатанных восковых сотах с нашей алтайской пасеки. Продаётся только цельной деревянной рамкой, без нарезки, сохраняя первозданную пользу.',
       images: [
-        '/assets/catalog/in-stock/honeycomb.jpg'
+        'assets/catalog/in-stock/honeycomb.jpg'
       ],
       weights: [
         { label: 'Цельная рамка (~1.5 кг) — 2 500 ₽', value: 1500, price: 2500 }
@@ -60,10 +60,10 @@ var PRODUCTS_DATA = {
       description:
         'Майский ручной сбор дикорастущих трав с высокогорных лугов Дагестана. Высушены естественным способом в тени без потери эфирных масел и целебного аромата. Фасуются в большие крафт-пакеты 18×25 см.',
       images: [
-        '/assets/catalog/in-stock/herbs-1.jpg',
-        '/assets/catalog/in-stock/herbs-2.jpg',
-        '/assets/catalog/in-stock/herbs-3.jpg',
-        '/assets/catalog/in-stock/herbs-4.jpg'
+        'assets/catalog/in-stock/herbs-1.jpg',
+        'assets/catalog/in-stock/herbs-2.jpg',
+        'assets/catalog/in-stock/herbs-3.jpg',
+        'assets/catalog/in-stock/herbs-4.jpg'
       ],
       weights: [
         { label: 'Мята горная (крафт-пакет 18×25 см) — 600 ₽', value: 1, price: 600 },
@@ -84,7 +84,7 @@ var PRODUCTS_DATA = {
       description:
         'Чистая сотовая перга ручной выборки («пчелиный хлеб») с нашей пасеки на Алтае. Мощный природный биостимулятор и концентрат аминокислот для иммунитета.',
       images: [
-        '/assets/catalog/in-stock/bee-perga.jpg'
+        'assets/catalog/in-stock/bee-perga.jpg'
       ],
       weights: [
         { label: 'Пакетик 100 г — 1 100 ₽', value: 100, price: 1100 }
@@ -103,8 +103,8 @@ var PRODUCTS_DATA = {
       description:
         'Натуральная цветочная пыльца (пчелиная обножка) с медоносов Алтайского края. Натуральный витаминно-минеральный комплекс для бодрости и здоровья.',
       images: [
-        '/assets/catalog/in-stock/bee-pollen-1.jpg',
-        '/assets/catalog/in-stock/bee-pollen-2.jpg'
+        'assets/catalog/in-stock/bee-pollen-1.jpg',
+        'assets/catalog/in-stock/bee-pollen-2.jpg'
       ],
       weights: [
         { label: 'Пакетик 100 г — 800 ₽', value: 100, price: 800 }
@@ -123,7 +123,7 @@ var PRODUCTS_DATA = {
       description:
         'Качественный сухой подмор от здоровых семей с алтайской пасеки. Богат хитозаном и меланином. Применяется для приготовления домашних настоек и растирок.',
       images: [
-        '/assets/catalog/in-stock/bee-podmor.jpg'
+        'assets/catalog/in-stock/bee-podmor.jpg'
       ],
       weights: [
         { label: 'Пакетик 100 г — 1 100 ₽', value: 100, price: 1100 }
@@ -142,8 +142,8 @@ var PRODUCTS_DATA = {
       description:
         'Натуральное сливочное масло, перетопленное вручную на медленном огне по старинному рецепту. Чистый янтарный цвет, нежный сливочный аромат, без молочного белка и примесей.',
       images: [
-        '/assets/catalog/in-stock/ghee-1.jpg',
-        '/assets/catalog/in-stock/ghee-2.jpg'
+        'assets/catalog/in-stock/ghee-1.jpg',
+        'assets/catalog/in-stock/ghee-2.jpg'
       ],
       weights: [
         { label: 'Банка 500 г — 750 ₽', value: 500, price: 750 },
@@ -332,7 +332,8 @@ var PRODUCTS_DATA = {
       unit: 'шт.',
       popular: false
     }
-  ] 
+  ]
+};
 
 /* ─── ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (ГЛОБАЛЬНЫЙ ЭКСПОРТ) ───────── */
 
